@@ -10,8 +10,7 @@ public class FirstPersonCam : MonoBehaviour
     bool lockedCursor = true;
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     // Update is called once per frame
@@ -25,5 +24,11 @@ public class FirstPersonCam : MonoBehaviour
         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
         player.Rotate(Vector3.up * inputX);
+    }
+
+    public void CursorLock()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

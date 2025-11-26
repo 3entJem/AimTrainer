@@ -7,13 +7,14 @@ public class EnemyPopoutScript : MonoBehaviour
     public bool RandomBool;
     public float waitAttack = 5f;
     public GameObject magicball;
+    public Animator enemyanim;
     
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(DelayedAction());
+        
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class EnemyPopoutScript : MonoBehaviour
     void MoveCharacter()
     {
         Debug.Log("Move");
-        //Trigger movement
+        enemyanim.Play("enemyout");
     }
 
     IEnumerator AttackHesitate()
@@ -54,12 +55,17 @@ public class EnemyPopoutScript : MonoBehaviour
         Ray rayToCast = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(rayToCast, out touch))
         {
-            //Trigger animation to move back
+            enemyanim.Play("enemyback");
             Debug.Log("Move Back");
             StartCoroutine(DelayedAction());
         }
         else { Instantiate(magicball, transform.position, Quaternion.identity); }
             
+    }
+
+   public void ToStartTime()
+    {
+        StartCoroutine(DelayedAction());
     }
 
 }
