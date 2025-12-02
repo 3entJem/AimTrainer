@@ -8,13 +8,14 @@ public class EnemyPopoutScript : MonoBehaviour
     public float waitAttack = 5f;
     public GameObject magicball;
     public Animator enemyanim;
-    
-    
+    public PlayerHealthScript playerHealthScript;// insert heartnum variable here however that's done
+   
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+         int heartnum = playerHealthScript.heartnum;
     }
 
     // Update is called once per frame
@@ -45,11 +46,12 @@ public class EnemyPopoutScript : MonoBehaviour
     void MoveCharacter()
     {
         Debug.Log("Move");
-        enemyanim.Play("enemyout");
+        enemyanim.Play("enemyout"); //teleport instead?
     }
 
     IEnumerator AttackHesitate()
     {
+        int heartnum = playerHealthScript.heartnum;
         yield return new WaitForSeconds(waitAttack);
         RaycastHit touch;
         Ray rayToCast = new Ray(transform.position, transform.forward);
@@ -59,7 +61,7 @@ public class EnemyPopoutScript : MonoBehaviour
             Debug.Log("Move Back");
             StartCoroutine(DelayedAction());
         }
-        else { Instantiate(magicball, transform.position, Quaternion.identity); }
+        else { heartnum--; }
             
     }
 
