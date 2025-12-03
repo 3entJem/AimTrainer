@@ -3,7 +3,6 @@ using UnityEngine;
 public class FirstPersonCam : MonoBehaviour
 {
 
-
     public Transform player;
     public float mouseSensitivity = 2f;
     float cameraVerticalRotation = 0f;
