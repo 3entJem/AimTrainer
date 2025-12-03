@@ -16,6 +16,8 @@ public class FirstPersonCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         float inputX = Input.GetAxis("Mouse X")*mouseSensitivity;
         float inputY = Input.GetAxis("Mouse Y")*mouseSensitivity;
 
@@ -24,11 +26,5 @@ public class FirstPersonCam : MonoBehaviour
         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
         player.Rotate(Vector3.up * inputX);
-    }
-
-    public void CursorLock()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 }
