@@ -7,8 +7,10 @@ public class PlayerHealthScript : MonoBehaviour
     public GameObject heart2image;
     public GameObject heart3image;
     public int heartnum = 3;
-    private bool canTakeDamage = true;
-    public float damageCooldown = 3f;
+    public GameObject EndingText;
+    public GameObject RestartingButton;
+    public ShootingScript shootingScript;
+    
 
 
 
@@ -18,10 +20,8 @@ public class PlayerHealthScript : MonoBehaviour
         heart1image.SetActive(true);
         heart2image.SetActive(true);
         heart3image.SetActive(true);
-
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-       // Collider playercollider = player.GetComponent<Collider>();
     }
+        
 
     // Update is called once per frame
     void Update()
@@ -48,21 +48,25 @@ public class PlayerHealthScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Attack()
     {
-        if (other.gameObject.CompareTag("MagicBall") && canTakeDamage)
-        {
-            heartnum--;
-            canTakeDamage = false;
-            Destroy(other.gameObject);
-            //StartCoroutine(ResetDamageCooldown());
-        }
+        heartnum--;
     }
 
-    /*private IEnumerator ResetDamageCooldown()
+    public void ToEndGame()
     {
-        yield return new WaitForSeconds(damageCooldown);
-        canTakeDamage = true;
-    }*/
+        Time.timeScale = 0f;
+        PresentingScore();
+        EndingText.SetActive(true);
+        RestartingButton.SetActive(true);
+    }
+
+    public void PresentingScore()
+    {
+
+    }
+
+
+  
 
 }

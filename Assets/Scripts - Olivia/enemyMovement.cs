@@ -8,6 +8,8 @@ public class enemyMovement : MonoBehaviour
     public GameObject exposedplace;
     public Timer hideTimer;
     public Timer popOutTimer;
+    public PlayerHealthScript playerHealthScript;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,7 @@ public class enemyMovement : MonoBehaviour
         gameObject.transform.position = exposedplace.transform.position;
         float time = Random.Range(3.0f, 6.0f);
         hideTimer.StartTimer(time);
+        
     }
 
     public void Hide()
@@ -40,5 +43,11 @@ public class enemyMovement : MonoBehaviour
         popOutTimer.StopTimer();
         hideTimer.StopTimer();
         Hide();
+    }
+
+    public void AttackPlayer()
+    {
+        Debug.Log("Attacking");
+        playerHealthScript.Attack();
     }
 }
