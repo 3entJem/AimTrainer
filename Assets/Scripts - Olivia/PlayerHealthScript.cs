@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHealthScript : MonoBehaviour
 {
@@ -7,8 +8,9 @@ public class PlayerHealthScript : MonoBehaviour
     public GameObject heart2image;
     public GameObject heart3image;
     public int heartnum = 3;
-    public GameObject EndingText;
-    public GameObject RestartingButton;
+    public TextMeshProUGUI EndingText;
+    public GameObject EndText;
+    
     public ShootingScript shootingScript;
     
 
@@ -45,6 +47,7 @@ public class PlayerHealthScript : MonoBehaviour
             heart3image.SetActive(false);
             Debug.Log("Waiting for seconds");
             new WaitForSeconds(10f);
+            ToEndGame();
         }
     }
 
@@ -57,13 +60,13 @@ public class PlayerHealthScript : MonoBehaviour
     {
         Time.timeScale = 0f;
         PresentingScore();
-        EndingText.SetActive(true);
-        RestartingButton.SetActive(true);
+        EndText.SetActive(true);
+       
     }
 
     public void PresentingScore()
     {
-
+        EndingText.text = "Your score is " + shootingScript.score.ToString() + ". To restart game, press esc.";
     }
 
 
