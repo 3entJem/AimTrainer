@@ -4,6 +4,9 @@ using TMPro;
 
 public class PlayerHealthScript : MonoBehaviour
 {
+    public AudioSource audioSrc;
+    public AudioSource audioSrc2;
+
     public GameObject heart1image;
     public GameObject heart2image;
     public GameObject heart3image;
@@ -31,17 +34,20 @@ public class PlayerHealthScript : MonoBehaviour
         
         if (heartnum == 2)
         {
+            
             heart1image.SetActive (false);
         }
 
         if (heartnum == 1)
         {
+            
             heart1image.SetActive(false);
             heart2image.SetActive (false);
         }
 
         if (heartnum == 0)
         {
+            
             heart1image.SetActive(false);
             heart2image.SetActive(false);
             heart3image.SetActive(false);
@@ -53,8 +59,14 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void Attack()
     {
+        audioSrc2.Play();
         heartnum--;
+        if (heartnum == 0)
+        {
+            audioSrc.Play();
+        }
     }
+        
 
     public void ToEndGame()
     {

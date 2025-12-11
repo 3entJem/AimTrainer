@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: New Material Variant
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 5664f28844edc5b4ca989fef7fe8274e, type: 2}
+  m_Parent: {fileID: 2100000, guid: 5e27842e86664db4a9edcf9963ceaae8, type: 2}
   m_ModifiedSerializedProperties: 24
   m_ValidKeywords:
   - _ALPHATEST_ON
@@ -30,11 +30,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 95bcec0882377324bb366f6393a5b844, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5563f862e465ca446af613b493133466, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 95bcec0882377324bb366f6393a5b844, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5563f862e465ca446af613b493133466, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -50,7 +50,7 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5400139772663777922
+--- !u!114 &4832007959351930391
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

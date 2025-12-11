@@ -8,6 +8,8 @@ public class ShootingScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int score = 0;
     public Transform FirePoint;
+    public AudioSource audioSrc;
+    public AudioSource audioSrc2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +24,7 @@ public class ShootingScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            audioSrc.Play();
             RaycastHit hit;
             if (Physics.Raycast(FirePoint.position, transform.TransformDirection(Vector3.forward), out hit, 1000))
             {
@@ -29,6 +32,7 @@ public class ShootingScript : MonoBehaviour
                 Debug.Log("Hit " + hit.transform.name);
                 if (hit.collider.gameObject.GetComponent<enemyMovement>())
                 {
+                    audioSrc2.Play();
                     Debug.Log("Target Hit!");
                     score++;
                     scoreText.text = "Score: " + score.ToString();
